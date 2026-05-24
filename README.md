@@ -1,6 +1,6 @@
-# Claryo (ProdMind)
+# Claryo
 
-Claryo (also known as ProdMind) is an intelligent product management workspace designed to seamlessly capture raw user feedback, extract actionable insights, prioritize strategic initiatives, and draft comprehensive Product Requirements Documents (PRDs). 
+Claryo is an intelligent product management workspace designed to seamlessly capture raw user feedback, extract actionable insights, prioritize strategic initiatives, and draft comprehensive Product Requirements Documents (PRDs). 
 
 With a premium UI built for speed, PMs can capture unstructured thoughts and let AI structure them into high-quality product decisions.
 

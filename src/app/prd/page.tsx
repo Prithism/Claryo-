@@ -85,7 +85,7 @@ export default function PRDPage() {
                 AI
               </div>
             </div>
-            <span className="text-sm text-stone-400 font-medium">Collaborating with ProdMind Engine</span>
+            <span className="text-sm text-stone-400 font-medium">Collaborating with Claryo Engine</span>
           </div>
         </div>
       </div>

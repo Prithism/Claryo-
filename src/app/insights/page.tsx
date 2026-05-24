@@ -51,7 +51,7 @@ const insightsData = [
     bg: "bg-amber-50/50",
     items: [
       { id: "u1", text: "Confused by 'Decision Logic' terminology", detail: "Non-technical PMs find the internal AI terms intimidating." },
-      { id: "u2", text: "Exporting to Jira is tedious", detail: "Mapping fields from ProdMind to Jira takes average 8 minutes per PRD." }
+      { id: "u2", text: "Exporting to Jira is tedious", detail: "Mapping fields from Claryo to Jira takes average 8 minutes per PRD." }
     ]
   },
   {
