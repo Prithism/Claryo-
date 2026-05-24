@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Inter', var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, 'Fira Code', monospace;
+
+  /* ─── Claryo Beige Design System ─── */
+  /* Core palette — warm, editorial, Mimir-inspired */
+  --color-background:     #fdfcf9;
+  --color-foreground:     #1a1714;
+  --color-muted:          #f5f1ea;
+  --color-muted-fg:       #8c7f72;
+  --color-card:           #ffffff;
+  --color-card-fg:        #1a1714;
+  --color-border:         #e8e1d6;
+  --color-border-subtle:  rgba(199, 187, 171, 0.4);
+  --color-ring:           #c7bbab;
+  --color-accent:         #f0ebe2;
+  --color-accent-fg:      #1a1714;
+
+  /* Brand */
+  --color-brand:          #c9b89a;
+  --color-brand-hover:    #b8a48a;
+  --color-brand-subtle:   rgba(201, 184, 154, 0.12);
+
+  /* Semantic */
+  --color-success:        #2d6a4f;
+  --color-success-subtle: rgba(45, 106, 79, 0.08);
+  --color-warning:        #92400e;
+  --color-warning-subtle: rgba(146, 64, 14, 0.08);
+  --color-danger:         #9b1c1c;
+
+  /* Backward compat */
+  --color-primary:              var(--color-brand);
+  --color-primary-dark:         var(--color-brand-hover);
+  --color-secondary:            var(--color-muted);
+  --color-brand-beige:          var(--color-brand);
+  --color-brand-beige-hover:    var(--color-brand-hover);
+  --color-card-border:          var(--color-border);
+  --color-sidebar-border:       var(--color-border);
+
+  /* Animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up:   accordion-up 0.2s ease-out;
+  --animate-fade-up:        fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-glow-pulse:     glow-pulse 2s ease-in-out infinite;
+
+  }
+
+/* Keyframes moved out of :root */
+@keyframes accordion-down {
+  from { height: 0; }
+  to   { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to   { height: 0; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 184, 154, 0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(201, 184, 154, 0.25); }
+}
+
+/* ─── CSS Custom Properties ─── */
+:root {
+  --background:      #fdfcf9;
+  --foreground:      #1a1714;
+  --muted:           #f5f1ea;
+  --muted-fg:        #8c7f72;
+  --card:            #ffffff;
+  --border:          #e8e1d6;
+  --border-subtle:   rgba(199, 187, 171, 0.4);
+  --ring:            #c7bbab;
+  --accent:          #f0ebe2;
+  --brand:           #c9b89a;
+  --brand-hover:     #b8a48a;
+
+  /* Semantic aliases (without color- prefix) used by page components */
+  --success:         #2d6a4f;
+  --success-subtle:  rgba(45, 106, 79, 0.08);
+  --warning:         #92400e;
+  --warning-subtle:  rgba(146, 64, 14, 0.08);
+  --danger:          #9b1c1c;
+}
+
+/* ─── Base Styles ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', var(--font-geist-sans), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+}
+
+/* ─── Typography Scale (Mimir-inspired editorial) ─── */
+h1 { font-size: clamp(1.75rem, 4vw, 3.5rem); font-weight: 600; line-height: 1.15; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.25rem, 2.5vw, 2rem);  font-weight: 600; letter-spacing: -0.025em; }
+h3 { font-size: 1.125rem;  font-weight: 600; letter-spacing: -0.02em; }
+h4 { font-size: 0.875rem;  font-weight: 600; letter-spacing: -0.01em; }
+
+/* ─── Mimir Utility Classes ─── */
+
+/* Eyebrow / section labels */
+.label-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-fg);
+}
+
+/* Mono data display */
+.mono-data {
+  font-family: var(--font-geist-mono), monospace;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+/* Glow border (hero input) */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(201, 184, 154, 0.4), rgba(199, 187, 171, 0.1));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.glow-border:focus-within::before {
+  opacity: 1;
+}
+
+/* Scroll fade-in animation */
+.scroll-fade-in {
+  opacity: 0;
+  animation: var(--animate-fade-up);
+  animation-fill-mode: both;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
